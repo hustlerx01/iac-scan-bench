@@ -46,7 +46,7 @@ What I learned:
 ## Limitations
 - One hand-written file with 11 issues. That's a smoke benchmark, not a statistically meaningful one. The original idea (scan 50 LLM-generated Terraform samples) isn't done yet.
 - Ground truth "hit" IDs are my mapping. A different mapping would change the recall numbers.
-- `terraform validate/plan` wasn't run (no terraform binary on the box). Scanners work on static HCL only, so module/variable resolution is limited.
+- `terraform validate/plan` wasn't run (no terraform binary on my lab machine). Scanners work on static HCL only, so module/variable resolution is limited.
 - The Rego rules only cover literal values in the same file, not `tfvars` or modules.
 
 ## Sources
