@@ -1,0 +1,97 @@
+{
+  "checkov": {
+    "insecure_findings": 47,
+    "unique_rules": 47,
+    "planted_detected": [
+      "PLANT-01",
+      "PLANT-02",
+      "PLANT-03",
+      "PLANT-04",
+      "PLANT-06",
+      "PLANT-07",
+      "PLANT-08",
+      "PLANT-09",
+      "PLANT-10",
+      "PLANT-11"
+    ],
+    "planted_missed": [
+      "PLANT-05"
+    ],
+    "recall": 0.909,
+    "fixed_findings": 17,
+    "fixed_rules": [
+      "CKV2_AWS_10",
+      "CKV2_AWS_41",
+      "CKV2_AWS_5",
+      "CKV2_AWS_60",
+      "CKV2_AWS_61",
+      "CKV2_AWS_62",
+      "CKV2_AWS_64",
+      "CKV_AWS_118",
+      "CKV_AWS_126",
+      "CKV_AWS_129",
+      "CKV_AWS_135",
+      "CKV_AWS_144",
+      "CKV_AWS_157",
+      "CKV_AWS_161",
+      "CKV_AWS_18",
+      "CKV_AWS_226",
+      "CKV_AWS_252"
+    ],
+    "runtime_s": 4.69
+  },
+  "tfsec": {
+    "insecure_findings": 30,
+    "unique_rules": 29,
+    "planted_detected": [
+      "PLANT-01",
+      "PLANT-02",
+      "PLANT-03",
+      "PLANT-04",
+      "PLANT-06",
+      "PLANT-07",
+      "PLANT-08",
+      "PLANT-09",
+      "PLANT-10"
+    ],
+    "planted_missed": [
+      "PLANT-05",
+      "PLANT-11"
+    ],
+    "recall": 0.818,
+    "fixed_findings": 7,
+    "fixed_rules": [
+      "aws-cloudtrail-ensure-cloudwatch-integration",
+      "aws-cloudtrail-require-bucket-access-logging",
+      "aws-iam-no-policy-wildcards",
+      "aws-rds-enable-iam-auth",
+      "aws-rds-enable-performance-insights",
+      "aws-rds-specify-backup-retention",
+      "aws-s3-enable-bucket-logging"
+    ],
+    "runtime_s": 2.2
+  },
+  "conftest": {
+    "insecure_findings": 3,
+    "unique_rules": 3,
+    "planted_detected": [
+      "PLANT-03",
+      "PLANT-05",
+      "PLANT-11"
+    ],
+    "planted_missed": [
+      "PLANT-01",
+      "PLANT-02",
+      "PLANT-04",
+      "PLANT-06",
+      "PLANT-07",
+      "PLANT-08",
+      "PLANT-09",
+      "PLANT-10"
+    ],
+    "recall": 0.273,
+    "fixed_findings": 0,
+    "fixed_rules": [],
+    "runtime_s": 0.11
+  }
+}
