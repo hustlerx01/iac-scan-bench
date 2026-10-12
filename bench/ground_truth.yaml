@@ -1,0 +1,12 @@
+# planted issue -> rule IDs that count as a correct detection for each tool
+PLANT-01: {desc: "S3 ACL public-read",            checkov: [CKV_AWS_20], tfsec: [aws-s3-no-public-access-with-acl], conftest: []}
+PLANT-02: {desc: "S3 public access block off",    checkov: [CKV_AWS_53, CKV_AWS_54, CKV_AWS_55, CKV_AWS_56], tfsec: [aws-s3-block-public-acls, aws-s3-block-public-policy, aws-s3-ignore-public-acls, aws-s3-no-public-buckets], conftest: []}
+PLANT-03: {desc: "SSH 0.0.0.0/0",                  checkov: [CKV_AWS_24], tfsec: [aws-ec2-no-public-ingress-sgr], conftest: [deny_world_admin_port]}
+PLANT-04: {desc: "RDS public + unencrypted",       checkov: [CKV_AWS_16, CKV_AWS_17], tfsec: [aws-rds-encrypt-instance-storage-data, aws-rds-no-public-db-access], conftest: []}
+PLANT-05: {desc: "Hardcoded DB password literal",  checkov: [CKV_SECRET_6, CKV_SECRET_80], tfsec: [general-secrets-no-plaintext-exposure], conftest: [deny_literal_password]}
+PLANT-06: {desc: "Unencrypted EBS volume",         checkov: [CKV_AWS_3], tfsec: [aws-ec2-enable-volume-encryption], conftest: []}
+PLANT-07: {desc: "IMDSv1 allowed",                 checkov: [CKV_AWS_79], tfsec: [aws-ec2-enforce-http-token-imds], conftest: []}
+PLANT-08: {desc: "KMS rotation off",               checkov: [CKV_AWS_7], tfsec: [aws-kms-auto-rotate-keys], conftest: []}
+PLANT-09: {desc: "IAM Action * Resource *",        checkov: [CKV_AWS_62, CKV_AWS_63], tfsec: [aws-iam-no-policy-wildcards], conftest: []}
+PLANT-10: {desc: "CloudTrail log validation off",  checkov: [CKV_AWS_36], tfsec: [aws-cloudtrail-enable-log-validation], conftest: []}
+PLANT-11: {desc: "AWS access key ID in locals",    checkov: [CKV_SECRET_2], tfsec: [general-secrets-no-plaintext-exposure], conftest: [deny_aws_key_literal]}
