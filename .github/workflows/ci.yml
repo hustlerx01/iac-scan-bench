@@ -1,0 +1,20 @@
+name: iac-bench
+on: [push, pull_request]
+permissions: {contents: read}
+jobs:
+  bench:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install -r requirements-dev.txt
+      - name: Install tfsec + conftest
+        run: |
+          curl -sSL -o /usr/local/bin/tfsec https://github.com/aquasecurity/tfsec/releases/download/v1.28.14/tfsec-linux-amd64 && chmod +x /usr/local/bin/tfsec
+          curl -sSL https://github.com/open-policy-agent/conftest/releases/download/v0.71.1/conftest_0.71.1_Linux_x86_64.tar.gz | tar xz -C /usr/local/bin conftest
+      - run: conftest verify -p policy
+      - run: pytest -q
+      - run: python bench/run_bench.py results-ci && cat results-ci/bench.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Gate - the fixed sample must pass custom policy
+        run: conftest test -p policy samples/fixed/main.tf
